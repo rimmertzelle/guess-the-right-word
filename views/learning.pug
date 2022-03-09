@@ -1,0 +1,38 @@
+extends layout
+
+block header    
+    div(class=["columns"])
+        div(class=['column'])
+            nav(class=['breadcrumb'], aria-label='breadcrumbs')
+                ul
+                    li
+                        a(href='../') Home
+                    li(class='is-active')
+                        a(href='./' aria-current='page') Learning
+        div(class=['column', 'has-text-right'])
+            div
+                ul
+                    li(class=['score', 'good']) good  #[span(id='good') 0 ]
+                    li(class=['score', 'wrong']) wrong  #[span(id='wrong') 0 ]
+                    li(class=['score', 'hint']) hints  #[span(id='hints') 0 ]
+
+block content
+    div.container
+        div()
+            div(class=['has-text-centered'])
+                h1(class=['title', 'is-1']) Guess the right word
+            div(id="feedback" class=['has-text-centered', 'mt-6'])
+            div(class=['columns', 'mt-6'])
+                div(class=['column','is-6','is-offset-2','has-text-right'])
+                    ul(id='word' class=['word'])
+                div(class=['column', 'is-1', 'has-text-left'])
+                    button(id='enter' class=['button','is-success']) Enter
+            div(class=['has-text-centered', 'mt-6'])
+                h2(class=['title', 'is-2']) Sentence
+                div(id='sentence' class='sentence')
+            div(class=['has-text-centered', 'mt-6'])
+                button(id='show' class=['button','is-warning']) Use hint
+                div(id='hint' class=['idle', 'mt-6'])
+
+block scripts 
+    script(src='/application.js' type='application/javascript')
